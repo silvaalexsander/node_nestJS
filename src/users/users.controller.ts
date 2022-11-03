@@ -35,6 +35,10 @@ export class UsersController {
    
 
     //deletar
+    @Delete(':id')
+    async remove(@Param('id') id: string){
+        return this.usersService.remove(id);
+    }
 
     //@Body pega o corpo da requisição
     //@Param pega o parametro da url
