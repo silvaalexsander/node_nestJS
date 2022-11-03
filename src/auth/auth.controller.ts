@@ -1,4 +1,4 @@
-import { Body, Controller, HttpException, Post } from '@nestjs/common';
+import { Body, Controller, HttpException, HttpStatus, Post } from '@nestjs/common';
 import { error } from 'console';
 import { AuthService } from './auth.service';
 
@@ -16,7 +16,7 @@ constructor(private readonly authService: AuthService){}
     if(!login){
         console.log('Login não informado')
         // return{error: true, msg: 'Login não informado'}
-        throw new HttpException('Login não informado', 401)      
+        throw new HttpException('Login não informado', HttpStatus.FORBIDDEN)      
     }else{
         console.log('Login: ', login);
         console.log('Password: ', password);
